@@ -40,7 +40,7 @@ pipeline {
         stage('Create backend Docker image') {
             steps {
                 script {
-                    backendImage = docker.build("${BACKEND_REPO_NAME}:${TAG}", "./demo")
+                    docker.build("${BACKEND_REPO_NAME}:${TAG}", "./demo")
                 }
             }
         }
@@ -48,8 +48,8 @@ pipeline {
         stage('Push backend Docker image') {
             steps {
                 script {
-                    docker.withRegistry([ credentialsId: "docker-hub-credential", url: "" ]) {
-                        sh 'docker push ${backendImage}'
+                    docker.withRegistry('','docker-hub-credential') {
+                        sh 'docker push joshiriya/gratefulplate-backend:latest --debug'
                     }
                 }
             }
