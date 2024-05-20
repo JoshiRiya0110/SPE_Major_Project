@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credential') {
-                        backendImage.push("${tag}")
+                        backendImage.push()
                     }
                 }
             }
