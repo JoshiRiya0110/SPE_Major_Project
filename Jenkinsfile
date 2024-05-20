@@ -12,7 +12,7 @@ pipeline {
         BACKEND_REPO_NAME = "joshiriya/gratefulplate-backend"
         FRONTEND_REPO_NAME = "joshiriya/gratefulplate-frontend"
         TAG = "latest"
-        
+        backendImage = ""
     }
 
     stages {
@@ -48,9 +48,8 @@ pipeline {
         stage('Push backend Docker image') {
             steps {
                 script {
-                    docker.withRegistry('', 'docker-hub-credential') {
-                        sh 'docker push joshiriya/gratefulplate-backend:latest'
-                    }
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
+                        backendImage.push("${tag}")
                 }
             }
 
