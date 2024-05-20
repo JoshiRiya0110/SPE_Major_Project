@@ -24,6 +24,11 @@ pipeline {
                 }
             }
         }
+        stage('Unit Testing') {
+            steps {
+                sh 'mvn test'
+            }
+        }
         // stage('Create backend Docker image') {
         //     steps {
         //         script {
