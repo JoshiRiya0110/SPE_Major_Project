@@ -48,8 +48,8 @@ pipeline {
         stage('Push backend Docker image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credential') {
-                        backendImage.push()
+                    docker.withRegistry([ credentialsId: "docker-hub-credential", url: "" ]) {
+                        sh 'docker push ${backendImage}'
                     }
                 }
             }
