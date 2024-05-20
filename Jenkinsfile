@@ -48,7 +48,7 @@ pipeline {
         stage('Push backend Docker image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credential') {
                         backendImage.push("${tag}")
                     }
                 }
