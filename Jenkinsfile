@@ -18,12 +18,13 @@ pipeline {
             }
         }
         // stage('Build backend code using Maven') {
-        //     steps {
-        //         script {
-        //             sh 'mvn -f demo clean install'
-        //         }
-        //     }
-        // }
+            steps {
+                script {
+                    sh 'mvn -f demo/pom.xml clean install
+'
+                }
+            }
+        }
         // stage('Create backend Docker image') {
         //     steps {
         //         script {
