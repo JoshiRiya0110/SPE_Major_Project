@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', 'docker-hub-credential') {
-                        backendImage.push()
+                        sh 'docker push joshiriya/gratefulplate-backend:latest'
                     }
                 }
             }
