@@ -20,8 +20,7 @@ pipeline {
         // stage('Build backend code using Maven') {
             steps {
                 script {
-                    sh 'mvn -f demo/pom.xml clean install
-'
+                    sh 'mvn -f demo/pom.xml clean install'
                 }
             }
         }
