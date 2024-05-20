@@ -10,8 +10,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
 
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -46,5 +48,11 @@ public class DemoApplicationTests {
         verify(deliveryPersonService, times(1)).findByEmailId("test@example.com");
     }
 
-}
+    @Test
+    public void testLogout() throws Exception {
+        mockMvc.perform(post("/api/deliveryperson/logout"))
+                .andExpect(status().isOk())
+                .andExpect((ResultMatcher) content().string("Logout successful"));
+    }
 
+}
