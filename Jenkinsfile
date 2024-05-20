@@ -26,7 +26,8 @@ pipeline {
         }
         stage('Unit Testing') {
             steps {
-                sh 'mvn test'
+                sh 'mvn -f demo/pom.xml test
+'
             }
         }
         // stage('Create backend Docker image') {
