@@ -29,48 +29,6 @@ pipeline {
                 sh 'mvn -f demo/pom.xml test'
             }
         }
-        // stage('Create backend Docker image') {
-        //     steps {
-        //         script {
-        //             backendImage = docker.build(backendRepositoryName + ":" + tag, "./demo")
-        //         }
-        //     }
-        // }
-        // stage('Push backend image to Docker Hub') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('', 'DockerHubCred') {
-        //                 backendImage.push()
-        //             }
-        //         }
-        //     }
-        // }
-        // stage('Create frontend Docker image') {
-        //     steps {
-        //         script {
-        //             frontendImage = docker.build(frontendRepositoryName + ":" + tag, "./frontendUpdated")
-        //         }
-        //     }
-        // }
-        // stage('Push frontend image to Docker Hub') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('', 'DockerHubCred') {
-        //                 frontendImage.push()
-        //             }
-        //         }
-        //     }
-        // }
-
-        // stage ("Run Ansible Playbook") {
-        //            steps {
-        //                 script {
-
-        //                  sh '/Users/samayochita/.local/bin/ansible-playbook -i inventory playbook.yml'
-
-        //                  }
-        //            }
-        // }
     }
 }
 
